@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="333ef3b4-6f2d-4b14-b366-83ddd618e61e" name="Changes" comment="This commit 27-04-2025">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Cucumber/Options/TestRunnerAddUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Features/addUser.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RestAssuredTest/Post_Get_PUT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logging.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logging.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Files/schma.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Features/ConsumerSignup.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Features/ConsumerSignup.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Resources/APIResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Resources/APIResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Resources/Dataprovider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Resources/ExcelFile.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Resources/ExcelFile.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Resources/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Resources/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RestAssuredTest/Difference_OAuth1_0_and_OAuth_2_0.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RestAssuredTest/jira_issue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RestAssuredTest/specBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RestAssuredTest/specBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Stepdefination/StepDefinationConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Stepdefination/StepDefinationConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Stepdefination/StepDefinationFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Stepdefination/StepDefinationFile.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="gaed-working" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2viQjexUN5mJe0GU4UEm8qxhfPM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/jk/Rest-asssured&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.TestRunnerAddUser">
+    <configuration name="Feature: addUser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/Features/addUser.feature" />
+      <option name="GLUE" value="Stepdefination" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="Rest-asssured" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: addUser" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Verify the add user API" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/Features/addUser.feature" />
+      <option name="GLUE" value="Stepdefination" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="Rest-asssured" />
+      <option name="NAME_FILTER" value="^Verify the add user API$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the add user API$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify the add user API" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunnerAddUser" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Rest-asssured" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cucumber.Options.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Cucumber.Options" />
+      <option name="MAIN_CLASS_NAME" value="Cucumber.Options.TestRunnerAddUser" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunnerBuySell" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Rest-asssured" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cucumber.Options.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Cucumber.Options" />
+      <option name="MAIN_CLASS_NAME" value="Cucumber.Options.TestRunnerBuySell" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunnerConsumerSignup" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Restassured_BDD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cucumber.Options.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Cucumber.Options" />
+      <option name="MAIN_CLASS_NAME" value="Cucumber.Options.TestRunnerConsumerSignup" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.TestRunnerAddUser" />
+        <item itemvalue="Cucumber Java.Scenario: Verify the add user API" />
+        <item itemvalue="Cucumber Java.Feature: addUser" />
+        <item itemvalue="TestNG.TestRunnerBuySell" />
+        <item itemvalue="TestNG.TestRunnerConsumerSignup" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="333ef3b4-6f2d-4b14-b366-83ddd618e61e" name="Changes" comment="" />
+      <created>1744625551330</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744625551330</updated>
+    </task>
+    <task id="LOCAL-00001" summary="This commit 27-04-2025">
+      <created>1745762376923</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745762376923</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="This commit 27-04-2025" />
+    <option name="LAST_COMMIT_MESSAGE" value="This commit 27-04-2025" />
+  </component>
+</project>
