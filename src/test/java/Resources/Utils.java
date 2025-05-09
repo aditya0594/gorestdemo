@@ -8,8 +8,11 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.specification.RequestSpecification;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.Assert;
 
 import java.io.*;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -31,6 +34,23 @@ public class Utils {
             return requestspec;
         }
         return requestspec;
+    }
+
+    public static void validateErrorResponse(String responseBody, String expectedField, String expectedMessage) {
+        JsonPath js = new JsonPath(responseBody);
+        List<Map<String, String>> errors = js.getList("");
+
+        boolean matchFound = false;
+
+        for (Map<String, String> error : errors) {
+            String field = error.get("field");
+            String message = error.get("message");
+            if (field.equals(expectedField) && message.equals(expectedMessage)) {
+                matchFound = true;
+                break;
+            }
+        }
+        Assert.assertTrue(matchFound, "Expected error for field '" + expectedField + "' with message '" + expectedMessage + "' was not found");
     }
     private static Properties properties;
     public static String properties(String key) throws IOException {
@@ -54,7 +74,7 @@ public class Utils {
 
     public static String generateRandomEmail() {
         String uuid = UUID.randomUUID().toString().replace("-", "").substring(0, 8);
-        return "testuser_" + uuid + "@example.com";
+        return "aditya" + uuid + "@yopmail.com";
     }
 
     public static void writeExcel(String sheetName, int rowNumber, int colNumber, String value) {

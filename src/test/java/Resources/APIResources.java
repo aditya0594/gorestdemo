@@ -14,7 +14,11 @@ public enum APIResources {
      SuperAdminLogin("/admin/login"),
     BuyandSellCreateProject("/project/sell-add"),
     //add user
-    AddUser("/users");
+    AddUser("/users"),
+    Getuser("/users"),
+    GetuserDetails("/users/{id}"),
+    Putuserdata("/users/{id}");//holding the id
+
     private String resource;
      APIResources(String resource){
             this.resource= resource;

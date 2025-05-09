@@ -12,74 +12,20 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-    "name": "Aditya Pawar",
-    "email": "testuser_35c5c815@example.com",
+    "name": "Aditya pawar",
+    "email": "aditya7d8207a0@yopmail.com",
     "gender": "Male",
     "status": "Active"
 }
 HTTP/1.1 201 Created
-Date: Fri, 09 May 2025 13:50:35 GMT
+Date: Fri, 09 May 2025 20:55:03 GMT
 Content-Type: application/json; charset=utf-8
-Content-Length: 110
+Content-Length: 107
 Connection: keep-alive
 Cache-Control: max-age=0, private, must-revalidate
-Etag: W/"b177f162b136e25907b2e1acbfe70ceb"
+Etag: W/"20fba18b15f49e76e9f57f67eef4df2b"
 Feature-Policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
-Location: https://gorest.co.in/public/v2/users/7881765
-Referrer-Policy: strict-origin-when-cross-origin
-Vary: Origin
-X-Content-Type-Options: nosniff
-X-Download-Options: noopen
-X-Frame-Options: SAMEORIGIN
-X-Permitted-Cross-Domain-Policies: none
-X-Ratelimit-Limit: 90
-X-Ratelimit-Remaining: 84
-X-Ratelimit-Reset: 1
-X-Request-Id: 2a23739c-f569-4260-afb6-189a7be49a34
-X-Runtime: 0.053787
-X-Xss-Protection: 0
-Cf-Cache-Status: DYNAMIC
-Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
-Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=NelLMV2l8LDxxxp1vmTuWxzshdtfRs1qzp3Cju3VAuetMLBVjCEs6Faj2VzrHUKYmg3s8ScZs2Gd5oRJOIbciauaaye7HA7ma36kHESf%2BDRsMRY2n1vEZVix3oS0uy8%3D"}]}
-Server: cloudflare
-CF-RAY: 93d1aaac7fcc3a4d-BOM
-alt-svc: h3=":443"; ma=86400
-
-{
-    "id": 7881765,
-    "name": "Aditya Pawar",
-    "email": "testuser_35c5c815@example.com",
-    "gender": "male",
-    "status": "active"
-}
-Request method:	POST
-Request URI:	https://gorest.co.in/public/v2/users
-Proxy:			<none>
-Request params:	<none>
-Query params:	<none>
-Form params:	<none>
-Path params:	<none>
-Headers:		Authorization=Bearer 5398de9263ff9cffd4e95c2ba3d7cf200eb4bf4fd373e216c690283169ab712c
-				Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		<none>
-Multiparts:		<none>
-Body:
-{
-    "name": "Aditya Pawar",
-    "email": "testuser_3f306775@example.com",
-    "gender": "Male",
-    "status": "Active"
-}
-HTTP/1.1 201 Created
-Date: Fri, 09 May 2025 13:50:36 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 110
-Connection: keep-alive
-Cache-Control: max-age=0, private, must-revalidate
-Etag: W/"f7b21314a87657408410344abd5cfaa6"
-Feature-Policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
-Location: https://gorest.co.in/public/v2/users/7881766
+Location: https://gorest.co.in/public/v2/users/7882312
 Referrer-Policy: strict-origin-when-cross-origin
 Vary: Origin
 X-Content-Type-Options: nosniff
@@ -89,30 +35,30 @@ X-Permitted-Cross-Domain-Policies: none
 X-Ratelimit-Limit: 90
 X-Ratelimit-Remaining: 89
 X-Ratelimit-Reset: 1
-X-Request-Id: 97c1a84d-0cb6-450f-88ae-e6e157b90750
-X-Runtime: 0.071537
+X-Request-Id: 6e3b7d7e-66f0-4e0f-966e-1e9801849a52
+X-Runtime: 0.055986
 X-Xss-Protection: 0
 Cf-Cache-Status: DYNAMIC
 Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
-Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=szMhDyfDRNQYZQXsalI6W8rklBurTpQBsXP50NeptrTraB4YnNLd9uHa0qqnKvvrlxdXB95PyfbKRGPAbfeuLRz6DXS%2BPQPbcNcfsQSpp60AJqu2v5tRolRf78YG%2FgA%3D"}]}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=ke0nujH5isZWCaIKI%2FO0o060xOnbflmZ7jZJ29VcGPJnyNWFxZyx4LI8xe8t1Z4Uiynwj8uj7LjiMcHcIuSPcttTtQbE1htVY7ZuL7IG8IWm0%2FaFNvvyExtupsE3ti0%3D"}]}
 Server: cloudflare
-CF-RAY: 93d1aab68d178ee2-BOM
+CF-RAY: 93d41870cbc2e7b8-FRA
 alt-svc: h3=":443"; ma=86400
 
 {
-    "id": 7881766,
-    "name": "Aditya Pawar",
-    "email": "testuser_3f306775@example.com",
+    "id": 7882312,
+    "name": "Aditya pawar",
+    "email": "aditya7d8207a0@yopmail.com",
     "gender": "male",
     "status": "active"
 }
-Request method:	POST
-Request URI:	https://gorest.co.in/public/v2/users
+Request method:	PUT
+Request URI:	https://gorest.co.in/public/v2/users/7882312
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
 Form params:	<none>
-Path params:	<none>
+Path params:	id=7882312
 Headers:		Authorization=Bearer 5398de9263ff9cffd4e95c2ba3d7cf200eb4bf4fd373e216c690283169ab712c
 				Accept=*/*
 				Content-Type=application/json; charset=UTF-8
@@ -120,17 +66,18 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-    "name": "",
-    "email": "testuser_d6b1c79b@example.com",
-    "gender": "Male",
-    "status": "Active"
+    "name": "Aditya",
+    "email": "aditya6a12fdf8@yopmail.com",
+    "gender": "female",
+    "status": "active"
 }
-HTTP/1.1 422 Unprocessable Entity
-Date: Fri, 09 May 2025 13:50:37 GMT
+HTTP/1.1 200 OK
+Date: Fri, 09 May 2025 20:55:05 GMT
 Content-Type: application/json; charset=utf-8
-Content-Length: 45
+Transfer-Encoding: chunked
 Connection: keep-alive
-Cache-Control: no-cache
+Cache-Control: max-age=0, private, must-revalidate
+Etag: W/"dc572fa3201ec742fab249180be31711"
 Feature-Policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
 Referrer-Policy: strict-origin-when-cross-origin
 Vary: Origin
@@ -140,224 +87,22 @@ X-Frame-Options: SAMEORIGIN
 X-Permitted-Cross-Domain-Policies: none
 X-Ratelimit-Limit: 90
 X-Ratelimit-Remaining: 89
-X-Ratelimit-Reset: 2
-X-Request-Id: d8921da7-de2f-45ea-814a-f031da5079d0
-X-Runtime: 0.063291
+X-Ratelimit-Reset: 1
+X-Request-Id: 944e480a-39d0-478c-a1b0-68396427d610
+X-Runtime: 0.051589
 X-Xss-Protection: 0
 Cf-Cache-Status: DYNAMIC
 Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
-Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=DDn%2BqOQv%2BHQxYSufh8Lwdt9CqAG1UHLnBp7npuhcb1nv7twhTQbsq6QiSDoyhusvhhIYHdak2gAEH%2F4qKjUv1kLIcNi5ph0Fl52ePXVmZe7X2LLV%2BwJiy8px2LM4ts0%3D"}]}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=oDkVLjYV0yaY5lrneCin3HcG7nynANv3TTvhfIbX%2BxY5qmX0FT7QLNs3fJ7jGci2m0zWQnbfjfYZ8M6kYQoD%2FYaAM9ESIdy8mfqIPDruDy%2FnxCHnOtG3LssMuLD9cEs%3D"}]}
+Content-Encoding: gzip
 Server: cloudflare
-CF-RAY: 93d1aab91a2b2e32-BOM
+CF-RAY: 93d41880efc15d39-FRA
 alt-svc: h3=":443"; ma=86400
 
-[
-    {
-        "field": "name",
-        "message": "can't be blank"
-    }
-]
-Request method:	POST
-Request URI:	https://gorest.co.in/public/v2/users
-Proxy:			<none>
-Request params:	<none>
-Query params:	<none>
-Form params:	<none>
-Path params:	<none>
-Headers:		Authorization=Bearer 5398de9263ff9cffd4e95c2ba3d7cf200eb4bf4fd373e216c690283169ab712c
-				Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		<none>
-Multiparts:		<none>
-Body:
 {
-    "name": "aditya pawar",
-    "email": "",
-    "gender": "Male",
-    "status": "Active"
+    "email": "aditya6a12fdf8@yopmail.com",
+    "name": "Aditya",
+    "gender": "female",
+    "status": "active",
+    "id": 7882312
 }
-HTTP/1.1 422 Unprocessable Entity
-Date: Fri, 09 May 2025 13:50:37 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 46
-Connection: keep-alive
-Cache-Control: no-cache
-Feature-Policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
-Referrer-Policy: strict-origin-when-cross-origin
-Vary: Origin
-X-Content-Type-Options: nosniff
-X-Download-Options: noopen
-X-Frame-Options: SAMEORIGIN
-X-Permitted-Cross-Domain-Policies: none
-X-Ratelimit-Limit: 90
-X-Ratelimit-Remaining: 88
-X-Ratelimit-Reset: 2
-X-Request-Id: e645edda-4169-4ceb-920f-ed192e9136ae
-X-Runtime: 0.056318
-X-Xss-Protection: 0
-Cf-Cache-Status: DYNAMIC
-Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
-Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=g%2Bdufa1PWrSjHn8j%2FTEf046lxG8GASA88HKoeW8jDW3gWp5uLhsdBCT%2FcmRDNn8K0Mq%2FuIjyqIAWEsUpF1rIeoYzxoEkbXReFTLlJqPT4ETJI3F93nJcBk2naqxnm%2FM%3D"}]}
-Server: cloudflare
-CF-RAY: 93d1aabc2aac4737-BOM
-alt-svc: h3=":443"; ma=86400
-
-[
-    {
-        "field": "email",
-        "message": "can't be blank"
-    }
-]
-Request method:	POST
-Request URI:	https://gorest.co.in/public/v2/users
-Proxy:			<none>
-Request params:	<none>
-Query params:	<none>
-Form params:	<none>
-Path params:	<none>
-Headers:		Authorization=Bearer 5398de9263ff9cffd4e95c2ba3d7cf200eb4bf4fd373e216c690283169ab712c
-				Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		<none>
-Multiparts:		<none>
-Body:
-{
-    "name": "aditya pawar",
-    "email": "testuser_aefeacab@example.com",
-    "gender": "",
-    "status": "Active"
-}
-HTTP/1.1 422 Unprocessable Entity
-Date: Fri, 09 May 2025 13:50:37 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 70
-Connection: keep-alive
-Cache-Control: no-cache
-Feature-Policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
-Referrer-Policy: strict-origin-when-cross-origin
-Vary: Origin
-X-Content-Type-Options: nosniff
-X-Download-Options: noopen
-X-Frame-Options: SAMEORIGIN
-X-Permitted-Cross-Domain-Policies: none
-X-Ratelimit-Limit: 90
-X-Ratelimit-Remaining: 87
-X-Ratelimit-Reset: 3
-X-Request-Id: 24fd1340-6947-449e-af04-cb057480611f
-X-Runtime: 0.070674
-X-Xss-Protection: 0
-Cf-Cache-Status: DYNAMIC
-Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
-Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=fBX3KcEWFzTkHkymqz1bQfsQHTKjyLz433%2FMscx%2BIlvJRvaSn0FbsmIuX7nsnCU9gof8J83rTlu0j6gyAhZeZJLE65WNXE3smhAEG9RQ72s9ICBc71V2AwXrBeTNoMc%3D"}]}
-Server: cloudflare
-CF-RAY: 93d1aabe29c185b1-BOM
-alt-svc: h3=":443"; ma=86400
-
-[
-    {
-        "field": "gender",
-        "message": "can't be blank, can be male of female"
-    }
-]
-Request method:	POST
-Request URI:	https://gorest.co.in/public/v2/users
-Proxy:			<none>
-Request params:	<none>
-Query params:	<none>
-Form params:	<none>
-Path params:	<none>
-Headers:		Authorization=Bearer 5398de9263ff9cffd4e95c2ba3d7cf200eb4bf4fd373e216c690283169ab712c
-				Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		<none>
-Multiparts:		<none>
-Body:
-{
-    "name": "aditya pawar",
-    "email": "testuser_db79753e@example.com",
-    "gender": "Male",
-    "status": ""
-}
-HTTP/1.1 422 Unprocessable Entity
-Date: Fri, 09 May 2025 13:50:38 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 47
-Connection: keep-alive
-Cache-Control: no-cache
-Feature-Policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
-Referrer-Policy: strict-origin-when-cross-origin
-Vary: Origin
-X-Content-Type-Options: nosniff
-X-Download-Options: noopen
-X-Frame-Options: SAMEORIGIN
-X-Permitted-Cross-Domain-Policies: none
-X-Ratelimit-Limit: 90
-X-Ratelimit-Remaining: 86
-X-Ratelimit-Reset: 4
-X-Request-Id: 49998d39-bad0-4753-adce-47e952dc993b
-X-Runtime: 0.058013
-X-Xss-Protection: 0
-Cf-Cache-Status: DYNAMIC
-Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
-Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=gq52f4WX%2FjAAxSLak%2By9bpVwY94r2ALLhVXOHWHq9NmnLOzZzmcSw7YpTcH4UwBtZWuN8mhNVFpm%2BUtdsfC8P3W9DNLYgnzU%2FnNFXX%2Bvrj2R8R9OxwP5aVfrh4EET3I%3D"}]}
-Server: cloudflare
-CF-RAY: 93d1aac07a9a80f8-BOM
-alt-svc: h3=":443"; ma=86400
-
-[
-    {
-        "field": "status",
-        "message": "can't be blank"
-    }
-]
-Request method:	POST
-Request URI:	https://gorest.co.in/public/v2/users
-Proxy:			<none>
-Request params:	<none>
-Query params:	<none>
-Form params:	<none>
-Path params:	<none>
-Headers:		Authorization=Bearer 5398de9263ff9cffd4e95c2ba3d7cf200eb4bf4fd373e216c690283169ab712c
-				Accept=*/*
-				Content-Type=application/json; charset=UTF-8
-Cookies:		<none>
-Multiparts:		<none>
-Body:
-{
-    "name": "aditya pawar",
-    "email": "aditypawar@yopmail.com",
-    "gender": "Male",
-    "status": "Active"
-}
-HTTP/1.1 422 Unprocessable Entity
-Date: Fri, 09 May 2025 13:50:38 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 54
-Connection: keep-alive
-Cache-Control: no-cache
-Feature-Policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
-Referrer-Policy: strict-origin-when-cross-origin
-Vary: Origin
-X-Content-Type-Options: nosniff
-X-Download-Options: noopen
-X-Frame-Options: SAMEORIGIN
-X-Permitted-Cross-Domain-Policies: none
-X-Ratelimit-Limit: 90
-X-Ratelimit-Remaining: 85
-X-Ratelimit-Reset: 4
-X-Request-Id: 90f52df6-2de2-4f84-89b7-c1c465ae870c
-X-Runtime: 0.058631
-X-Xss-Protection: 0
-Cf-Cache-Status: DYNAMIC
-Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
-Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2Fay7GehrniEI0S1W%2FUkOM1hd13BJZyDRKNGxoXp%2F8aX8E8sM6yepnQNYma%2BR9hb9bYWdyWhxlcM7oWY3x42KLu%2BJWfrtJCXFCct3VIwriMr5eMkZMRU0%2FdVMiarj3eU%3D"}]}
-Server: cloudflare
-CF-RAY: 93d1aac21ae43b2b-BOM
-alt-svc: h3=":443"; ma=86400
-
-[
-    {
-        "field": "email",
-        "message": "has already been taken"
-    }
-]
