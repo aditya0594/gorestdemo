@@ -3,6 +3,7 @@ package Stepdefination;
 
 import Resources.TestDataFields;
 import Resources.Utils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.restassured.path.json.JsonPath;
 import io.restassured.specification.RequestSpecification;
@@ -88,8 +89,5 @@ public class StepDefinationConsumer extends Utils {
         String LoginToken = js.getString("data.authToken");
         writeExcel("Tokens",1,3,LoginToken);
     }
-
-
-
 
 }
