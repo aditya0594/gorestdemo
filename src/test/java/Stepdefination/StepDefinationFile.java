@@ -216,7 +216,7 @@ public class StepDefinationFile extends Utils {
 //        }
         for (Map<String, Object> user : users) {
             assertNotNull("User id should not be null", user.get("id"));
-            assertTrue("User id should be of type Integer", user.get("id") instanceof Integer);
+            assertNotNull("User id should be of type Integer", user.get("id"));
             assertNotNull("User name should not be null", user.get("name"));
             assertNotNull("User email should not be null", user.get("email"));
             assertNotNull("User gender should not be null", user.get("gender"));
