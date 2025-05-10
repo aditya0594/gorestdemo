@@ -17,7 +17,7 @@ jobs:
       - name: Set up JDK 20
         uses: actions/setup-java@v3
         with:
-          java-version: '20'  # Updated to match the mentioned JDK version
+          java-version: '20'
           distribution: 'temurin'
 
       - name: Cache Maven packages
@@ -28,14 +28,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-#      - name: Run Unit Tests
-#        run: mvn test
-#
-#      - name: Run Integration Tests
-#        run: mvn test
-#
-#      - name: Upload Test Report
-#        uses: actions/upload-artifact@v3  # Ensure you are using a compatible version (v3 here)
-#        with:
-#          name: test-report
-#          path: target/surefire-reports  # Assuming the Maven surefire plugin generates the test reports here
+      - name: Run Cucumber Tests
+        run: mvn test
+
+      - name: Generate Cucumber HTML Report
+        run: mvn verify
+
+      - name: Upload Cucumber HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-html-report
+          path: target/cucumber-report-html
