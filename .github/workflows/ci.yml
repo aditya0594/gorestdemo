@@ -27,16 +27,26 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
-      - name: Run Cucumber Tests
+            
+                 - name: Run Tests
         run: mvn test
 
-      - name: Generate Cucumber HTML Report
-        run: mvn verify
-
-      - name: Upload Cucumber HTML Report
+      - name: Upload Surefire Test Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cucumber-html-report
-          path: reports/cucumber-report-html
+          name: surefire-report
+          path: reports/surefire-reports
+
+#      - name: Run Cucumber Tests
+#        run: mvn test -Dcucumber.plugin=html:reports/cucumber-report-html
+#
+#      - name: Generate Cucumber HTML Report
+#        run: mvn verify
+#
+#      - name: Upload Cucumber HTML Report
+#        if: always()
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: cucumber-html-report
+#          path: reports/cucumber-report-html
