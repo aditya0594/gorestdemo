@@ -27,15 +27,26 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+      - name: Run Cucumber Tests
+        run: mvn clean test
 
-      - name: Run Unit Tests
-        run: mvn test
+      - name: Generate Cucumber HTML Report
+        run: mvn verify
 
-      - name: Run Integration Tests
-        run: mvn test
-
-      - name: Upload Test Report
-        uses: actions/upload-artifact@v3  # Ensure you are using a compatible version (v3 here)
+      - name: Upload Cucumber HTML Report
+        uses: actions/upload-artifact@v4
         with:
-          name: test-report
-          path: target/surefire-reports  # Assuming the Maven surefire plugin generates the test reports here
+      - name: cucumber-html-report
+        path: target/cucumber-report-html
+
+#      - name: Run Unit Tests
+#        run: mvn test
+#
+#      - name: Run Integration Tests
+#        run: mvn test
+#
+#      - name: Upload Test Report
+#        uses: actions/upload-artifact@v3  # Ensure you are using a compatible version (v3 here)
+#        with:
+#          name: test-report
+#          path: target/surefire-reports  # Assuming the Maven surefire plugin generates the test reports here
