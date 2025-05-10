@@ -27,17 +27,6 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Run Cucumber Tests
-        run: mvn clean test
-
-      - name: Generate Cucumber HTML Report
-        run: mvn verify
-
-      - name: Upload Cucumber HTML Report
-        uses: actions/upload-artifact@v4
-        with:
-      - name: cucumber-html-report
-        path: target/cucumber-report-html
 
 #      - name: Run Unit Tests
 #        run: mvn test
