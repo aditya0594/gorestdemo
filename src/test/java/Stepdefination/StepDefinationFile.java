@@ -1,7 +1,6 @@
 package Stepdefination;
 
 import Resources.APIResources;
-import Resources.TestDataFields;
 import Resources.Utils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,16 +9,14 @@ import io.cucumber.java.en.When;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.Assert;
 import pojo.UpdateUser;
 import pojo.User;
-import pojo.UserResponse;
-import pojo.VerifyOTP;
+
 import static org.junit.Assert.*;
-import java.io.File;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -33,30 +30,18 @@ public class StepDefinationFile extends Utils {
     static String response;
     //public Response response;
     static String response1;
+    static int PutID;
     RequestSpecification res;
     JsonPath js;
-    TestDataFields data = new TestDataFields();
-    StepDefinationSuperadmin admin = new StepDefinationSuperadmin();
-    String email;
     User user;
     int ID;
-    static int PutID;
     User putrequestdata = new User();
-
+    UpdateUser updateUser;
+    Map<String, Object> updateUserMap = new HashMap<>();
 
     public StepDefinationFile() {
     }
 
-    //    @Given("Add Place payload {string} {string}")
-//    public void add_place_payload(String name, String address) throws IOException {
-//            //Response SpecBuilder
-//            Responsespec = new ResponseSpecBuilder()
-//                    .expectStatusCode(200)
-//                    .expectContentType(ContentType.JSON).build();
-//
-//        res =  given().spec(requestspecification()).queryParams("key", "qaclick123").body(data.addplacePayload(name,address));
-//
-//    }
     @When("User call {string} with {string} http request")
     public String user_call_with_http_request(String resource, String method) {
 
@@ -70,20 +55,20 @@ public class StepDefinationFile extends Utils {
             response = res.when().get(resourceAPI.getResource())
                     .then().spec(Responsespec).extract().response().asString();
             System.out.println(response);
-        }else if (method.equalsIgnoreCase("PUT")) {
+        } else if (method.equalsIgnoreCase("PUT")) {
             response = String.valueOf(res.when().put(resourceAPI.getResource())
-                    .then().spec(Responsespec).extract().response());
+                    .then().spec(Responsespec).extract().response().asString());
             System.out.println(response);
-        }
-        else if (method.equalsIgnoreCase("DELETE")) {
+        } else if (method.equalsIgnoreCase("DELETE")) {
             response = res.when().delete(resourceAPI.getResource())
                     .then().spec(Responsespec).extract().response().asString();
             System.out.println(response);
-        }else {
+        } else {
             System.out.println("Invalid http Method");
         }
         return response;
     }
+
     @Then("{string} in response body is {string}")
     public void in_response_body_is(String keyvalue, String expectedValue) {
 
@@ -92,31 +77,17 @@ public class StepDefinationFile extends Utils {
         String actualValue = js.getString(keyvalue);
         System.out.println("Value for " + keyvalue + ": " + actualValue);
         assertEquals(expectedValue, actualValue);
-
-
     }
-
+    String email;
     @Given("Add Place payload {string} {string}")
-    public void add_place_payload(String string, String string2) throws IOException {
-        Responsespec = new ResponseSpecBuilder().expectStatusCode(200)
-                .expectContentType("text/plain").build();
-        res = given().spec(requestspecification("https://rahulshettyacademy.com/"))
-                .body("{\n" +
-                        "\"name\":\"Learn Appium Automation with Java\",\n" +
-                        "\"isbn\":\"bcwee21d\",\n" +
-                        "\"aisle\":\"2954426\",\n" +
-                        "\"author\":\"John foer\"\n" +
-                        "}\n");
-    }
-
     @Given("Add user payload")
     public void add_user_payload() throws IOException {
         this.email = Utils.generateRandomEmail();
         user = new User("Aditya Pawar", email, "Male", "Active");
         Responsespec = new ResponseSpecBuilder().expectStatusCode(201).expectContentType("application/json").build();
         res = given().log().all()
-                .spec(requestspecification("https://gorest.co.in/public/v2"))
-                .body(user);
+                .spec(requestspecification()
+                .body(user));
     }
 
     @When("Verify user is created")
@@ -140,21 +111,13 @@ public class StepDefinationFile extends Utils {
         User user = new User("", email, "Male", "Active");
         Responsespec = new ResponseSpecBuilder().expectStatusCode(422).expectContentType("application/json").build();
         res = given().log().all()
-                .spec(requestspecification("https://gorest.co.in/public/v2"))
+                .spec(requestspecification())
                 .body(user);
     }
 
     @When("Verify Name is missing or empty!")
     public void verify_name_is_missing_or_empty() {
         validateErrorResponse(response, "name", "can't be blank");
-
-
-//        js = new JsonPath(response);
-//        String message = js.get("[0].message");
-//        String name = js.get("[0].field");
-//        Assert.assertEquals(message, "can't be blank");
-//        Assert.assertEquals(name, "name");
-
     }
 
     @Given("Add user payload with the missing email")
@@ -163,19 +126,13 @@ public class StepDefinationFile extends Utils {
         User user = new User("aditya pawar", "", "Male", "Active");
         Responsespec = new ResponseSpecBuilder().expectStatusCode(422).expectContentType("application/json").build();
         res = given().log().all()
-                .spec(requestspecification("https://gorest.co.in/public/v2"))
+                .spec(requestspecification())
                 .body(user);
     }
 
     @When("It should show the Email is missing or empty! message")
     public void it_should_show_the_email_is_missing_or_empty_message() {
         validateErrorResponse(response, "email", "can't be blank");
-//        js = new JsonPath(response);
-//        String message = js.get("[0].message");
-//        String email = js.get("[0].field");
-//        Assert.assertEquals(message, "can't be blank");
-//        Assert.assertEquals(email, "email");
-
     }
 
     @Given("Add user payload with the missing Gender")
@@ -184,18 +141,13 @@ public class StepDefinationFile extends Utils {
         User user = new User("aditya pawar", email, "", "Active");
         Responsespec = new ResponseSpecBuilder().expectStatusCode(422).expectContentType("application/json").build();
         res = given().log().all()
-                .spec(requestspecification("https://gorest.co.in/public/v2"))
+                .spec(requestspecification())
                 .body(user);
     }
 
     @When("It should show the Gender is missing or empty! message")
     public void it_should_show_the_gender_is_missing_or_empty_message() {
         validateErrorResponse(response, "gender", "can't be blank, can be male of female");
-//        js = new JsonPath(response);
-//        String message = js.get("[0].message");
-//        String gender = js.get("[0].field");
-//        Assert.assertEquals(message, "can't be blank, can be male of female");
-//        Assert.assertEquals(gender, "gender");
     }
 
     @Given("Add user payload with the missing Status")
@@ -204,18 +156,13 @@ public class StepDefinationFile extends Utils {
         User user = new User("aditya pawar", email, "Male", "");
         Responsespec = new ResponseSpecBuilder().expectStatusCode(422).expectContentType("application/json").build();
         res = given().log().all()
-                .spec(requestspecification("https://gorest.co.in/public/v2"))
+                .spec(requestspecification())
                 .body(user);
     }
 
     @When("It should show the Status is missing or empty! message")
     public void it_should_show_the_status_is_missing_or_empty_message() throws IOException {
         validateErrorResponse(response, "status", "can't be blank");
-//        js = new JsonPath(response);
-//        String message = js.get("[0].message");
-//        String status = js.get("[0].field");
-//        Assert.assertEquals(message, "can't be blank");
-//        Assert.assertEquals(status, "status");
     }
 
     @When("Status is missing or empty!")
@@ -224,13 +171,12 @@ public class StepDefinationFile extends Utils {
 
     }
 
-    //testuser_244816f7@example.com
     @Given("Add user payload with same email")
     public void add_user_payload_with_same_email() throws IOException {
         User user = new User("aditya pawar", "aditypawar@yopmail.com", "Male", "Active");
         Responsespec = new ResponseSpecBuilder().expectStatusCode(422).expectContentType("application/json").build();
         res = given().log().all()
-                .spec(requestspecification("https://gorest.co.in/public/v2"))
+                .spec(requestspecification())
                 .body(user);
     }
 
@@ -251,7 +197,7 @@ public class StepDefinationFile extends Utils {
                 .expectContentType(ContentType.JSON).build();
 
         // Initialize the RequestSpecification for the GET request
-        res = given().spec(requestspecification("https://gorest.co.in/public/v2"));
+        res = given().spec(requestspecification());
     }
 
     @Then("I should receive a list of users")
@@ -290,7 +236,7 @@ public class StepDefinationFile extends Utils {
     public void verify_user_details_by_id() throws IOException {
         Responsespec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType("application/json").build();
         // Write code here that turns the phrase above into concrete actions
-        res = given().spec(requestspecification("https://gorest.co.in/public/v2"))
+        res = given().spec(requestspecification())
                 .pathParam("id", ID);
         user_call_with_http_request("GetuserDetails", "get");
         js = new JsonPath(response);
@@ -327,45 +273,29 @@ public class StepDefinationFile extends Utils {
         } else {
             System.out.println("ID does not match the response.");
         }
-
     }
-
-
-//    @When("Verify user details with invalid ID")
-//    public void verify_user_details_with_invalid_id() throws IOException {
-//        Responsespec = new ResponseSpecBuilder().expectStatusCode(404)
-//                .expectContentType(ContentType.JSON).build();
-//
-//        res = given().spec(requestspecification("https://gorest.co.in/public/v2"))
-//                .pathParam("id", "1");
-//        user_call_with_http_request("GetuserDetails", "get");
-//    }
-//    @Then("I should receive the error message and validate the status code will be {int}")
-//    public void i_should_receive_the_error_message_and_validate_the_status_code_will_be(Integer int1){
-//        js = new JsonPath(response);
-//        String errorMessage = js.get("message");
-//        Assert.assertEquals(errorMessage,"Resource not found");
-//    }
 
     @When("User calls {string} with {string} http request using invalid ID {string}")
     public void user_calls_with_http_request_using_invalid_id(String resoure, String httpMethod, String id) throws IOException {
         Responsespec = new ResponseSpecBuilder().expectStatusCode(404)
                 .expectContentType(ContentType.JSON).build();
 
-        res = given().spec(requestspecification("https://gorest.co.in/public/v2"))
+        res = given().spec(requestspecification())
                 .pathParam("id", id);
         user_call_with_http_request(resoure, httpMethod);
     }
+
     @Then("Status code should be {int}")
     public void status_code_should_be(Integer statusCode) {
         Responsespec = new ResponseSpecBuilder().expectStatusCode(statusCode)
                 .expectContentType(ContentType.JSON).build();
     }
+
     @Then("The error message should be {string}")
     public void the_error_message_should_be(String string) {
         js = new JsonPath(response);
         String errorMessage = js.get("message");
-        Assert.assertEquals(errorMessage,"Resource not found");
+        Assert.assertEquals(errorMessage, "Resource not found");
     }
 
     @Given("Update the user create data")
@@ -374,7 +304,7 @@ public class StepDefinationFile extends Utils {
         user = new User("Aditya pawar", email, "Male", "Active");
         Responsespec = new ResponseSpecBuilder().expectStatusCode(201).expectContentType("application/json").build();
         res = given().log().all()
-                .spec(requestspecification("https://gorest.co.in/public/v2"))
+                .spec(requestspecification())
                 .body(user);
     }
 
@@ -383,10 +313,10 @@ public class StepDefinationFile extends Utils {
         Responsespec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType("application/json").build();
         // Write code here that turns the phrase above into concrete actions
         String updatedemail = Utils.generateRandomEmail();
-        putrequestdata = new User("Aditya",updatedemail, "female", "active");
-        res = given().log().all().spec(requestspecification("https://gorest.co.in/public/v2"))
+        putrequestdata = new User("Aditya", updatedemail, "female", "active");
+        res = given().log().all().spec(requestspecification())
                 .pathParam("id", PutID).body(putrequestdata);
-        user_call_with_http_request(resourse,httpMethod);
+        user_call_with_http_request(resourse, httpMethod);
         js = new JsonPath(response);
         int actualID = js.get("id");
         System.out.println("Extracted id from the response" + actualID);
@@ -401,7 +331,6 @@ public class StepDefinationFile extends Utils {
         PutID = js.get("id");
         System.out.println("Extracted id from the response" + PutID);
     }
-
 
     @And("Verify that the updated name, email, gender, status")
     public void verifyThatTheUpdatedNameEmailGenderStatus() {
@@ -432,9 +361,8 @@ public class StepDefinationFile extends Utils {
         }
     }
 
-    UpdateUser updateUser;
     @When("User calls {string} with {string} http request using missing {string}")
-    public void userCallsWithHttpRequestUsingMissing(String resourse, String httpMethod,String missingField) throws IOException {
+    public void userCallsWithHttpRequestUsingMissing(String resourse, String httpMethod, String missingField) throws IOException {
         Responsespec = new ResponseSpecBuilder()
                 .expectStatusCode(422)
                 .expectContentType(ContentType.JSON)
@@ -457,20 +385,19 @@ public class StepDefinationFile extends Utils {
             default:
                 throw new IllegalArgumentException("Unsupported missing field: " + missingField);
         }
-        res = given().log().all().spec(requestspecification("https://gorest.co.in/public/v2"))
+        res = given().log().all().spec(requestspecification())
                 .pathParam("id", PutID).body(putrequestdata);
-        user_call_with_http_request(resourse,httpMethod);
+        user_call_with_http_request(resourse, httpMethod);
     }
 
     @Then("The error message {string} should contain {string}")
-    public void theErrorMessageShouldContain(String errorMessage,String fieldName) {
+    public void theErrorMessageShouldContain(String errorMessage, String fieldName) {
         Responsespec = new ResponseSpecBuilder()
                 .expectStatusCode(422)
                 .expectContentType(ContentType.JSON)
                 .build();
         validateErrorResponse(response, errorMessage, fieldName);
     }
-    Map<String, Object> updateUserMap = new HashMap<>();
 
     @When("User calls {string} with {string} http request using missing {string} field")
     public void userCallsWithHttpRequestUsingMissingField(String resourse, String httpMethod, String parameter) throws IOException {
@@ -486,7 +413,7 @@ public class StepDefinationFile extends Utils {
 
         Map<String, Object> updateUserMap = new HashMap<>();
 
-// Add fields to the map if they are not the missing ones
+        // Add fields to the map if they are not the missing ones
         if (!parameter.equalsIgnoreCase("name")) {
             updateUserMap.put("name", "Aditya");
         }
@@ -499,16 +426,16 @@ public class StepDefinationFile extends Utils {
         if (!parameter.equalsIgnoreCase("status")) {
             updateUserMap.put("status", "active");
         }
-        res = given().log().all().spec(requestspecification("https://gorest.co.in/public/v2"))
+        res = given().log().all().spec(requestspecification())
                 .pathParam("id", PutID).body(updateUserMap);
-        user_call_with_http_request(resourse,httpMethod);
+        user_call_with_http_request(resourse, httpMethod);
     }
 
     @Then("It should update the user with the provided data")
     public void itShouldUpdateTheUserWithTheProvidedData() {
         js = new JsonPath(response);
 
-// Extract the response values
+        // Extract the response values
         String name = js.get("name");
         String email = js.get("email");
         String gender = js.get("gender");
@@ -516,8 +443,7 @@ public class StepDefinationFile extends Utils {
         int id = js.get("id");
 
 
-
-// Check if the fields in the map match the response values
+        // Check if the fields in the map match the response values
         if (updateUserMap.containsKey("name")) {
             assert updateUserMap.get("name").equals(name) : "Name does not match the response.";
         }
@@ -534,23 +460,22 @@ public class StepDefinationFile extends Utils {
             assert updateUserMap.get("status").equals(status) : "Status does not match the response.";
         }
 
-// Assertion for matching ID
+        // Assertion for matching ID
         assert String.valueOf(PutID).equals(String.valueOf(id)) : "ID does not match the response.";
 
-// If all assertions pass, it will silently move forward, indicating success.
+        // If all assertions pass, it will silently move forward, indicating success.
         System.out.println("All data matches the response.");
 
 
     }
-
     @When("User calls {string} with {string} http request and verify the status code {int}")
-    public void userCallsWithHttpRequestAndVerifyTheStatusCode(String resourse, String httpMethod,int code) throws IOException {
+    public void userCallsWithHttpRequestAndVerifyTheStatusCode(String resourse, String httpMethod, int code) throws IOException {
         Responsespec = new ResponseSpecBuilder().expectStatusCode(code).build();
         // Write code here that turns the phrase above into concrete actions
         String updatedemail = Utils.generateRandomEmail();
-        res = given().log().all().spec(requestspecification("https://gorest.co.in/public/v2"))
+        res = given().log().all().spec(requestspecification())
                 .pathParam("id", PutID);
-        user_call_with_http_request(resourse,httpMethod);
+        user_call_with_http_request(resourse, httpMethod);
     }
 
 

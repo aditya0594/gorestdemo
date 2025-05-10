@@ -1,5 +1,5 @@
 Feature: To verify the user delete API functionality
-
+  @DeleteUser
   Scenario: Verify the add user API
     Given Update the user create data
     When User call "AddUser" with "POST" http request

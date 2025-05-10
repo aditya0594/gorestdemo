@@ -1,6 +1,5 @@
 Feature: To verify the update user API
- @UpdateUser
-  Scenario: Verify the add user API
+    Background:
     Given Update the user create data
     When User call "AddUser" with "POST" http request
     Then Then The response status code should be 201 Get the created user id

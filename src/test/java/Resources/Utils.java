@@ -17,18 +17,27 @@ import java.util.Properties;
 import java.util.UUID;
 
 public class Utils {
-    public static RequestSpecification requestspec;
-    public static RequestSpecification requestspecGAED;
 
-    public RequestSpecification requestspecification(String baseurl) throws IOException {
+
+    public static RequestSpecification requestspec;
+
+    public RequestSpecification requestspecification() throws IOException {
+        String env = System.getProperty("env", "dev");
+        ConfigLoader.load(env);
+        String baseurl1 = ConfigLoader.get("baseUrl");
+        String token = ConfigLoader.get("token");
+        System.out.println("Token from the properties file: " + token);
+        System.out.println("baseurl from the properties file: " + baseurl1);
+
 
         if (requestspec == null) {
+
             // here this printStream is a object which asking for the lRequestLoggingFilter.logRequestTo()
             PrintStream log = new PrintStream(new FileOutputStream("Logging.txt")); // here we are creating the file of logs
-            requestspec = new RequestSpecBuilder().setBaseUri(baseurl)
+            requestspec = new RequestSpecBuilder().setBaseUri(baseurl1)
                     .addFilter(RequestLoggingFilter.logRequestTo(log))
                     .addFilter(ResponseLoggingFilter.logResponseTo(log))//this is for the logs in the text file
-                    .addHeader("Authorization", "Bearer 5398de9263ff9cffd4e95c2ba3d7cf200eb4bf4fd373e216c690283169ab712c")
+                    .addHeader("Authorization", token)
                     .setContentType(ContentType.JSON)
                     .build();
             return requestspec;
@@ -52,19 +61,8 @@ public class Utils {
         }
         Assert.assertTrue(matchFound, "Expected error for field '" + expectedField + "' with message '" + expectedMessage + "' was not found");
     }
-    private static Properties properties;
-    public static String properties(String key) throws IOException {
-            try {
-                FileInputStream fis = new FileInputStream("src/test/java/Resources/global.properties"); // Adjust path if needed
-                properties = new Properties();
-                properties.load(fis);
-                fis.close();
-            } catch (IOException e) {
-                throw new RuntimeException("Failed to load config.properties file", e);
-            }
-            return properties.getProperty(key);
 
-    }
+
 
     public static String getJsonPath(String response, String key) {
         String resp = response.toString();
