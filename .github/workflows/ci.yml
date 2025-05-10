@@ -35,7 +35,8 @@ jobs:
         run: mvn verify
 
       - name: Upload Cucumber HTML Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cucumber-html-report
-          path: test-output/cucumber-report-html
+          path: reports/cucumber-report-html
