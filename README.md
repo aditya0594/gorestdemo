@@ -87,6 +87,8 @@ Modify `qa.properties` to switch environments:
 ```properties
 baseUrl=https://api.example.com
 authToken=Bearer your_token_here
+
+NOTE : If token expries, you have to generate from the gorest site
 ```
 
 ---
