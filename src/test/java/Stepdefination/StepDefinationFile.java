@@ -15,7 +15,7 @@ import org.testng.Assert;
 import pojo.UpdateUser;
 import pojo.User;
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -77,7 +77,7 @@ public class StepDefinationFile extends Utils {
         place_id = js.get("place_id");
         String actualValue = js.getString(keyvalue);
         System.out.println("Value for " + keyvalue + ": " + actualValue);
-        assertEquals(expectedValue, actualValue);
+        Assert.assertEquals(expectedValue, actualValue);
     }
 
     @Given("Add Place payload {string} {string}")
@@ -205,7 +205,7 @@ public class StepDefinationFile extends Utils {
     public void i_should_receive_a_list_of_users() {
         js = new JsonPath(response);
         List<Object> users = js.getList("");
-        assertNotNull("Response should not be null", response);
+        Assert.assertNotNull("Response should not be null", response);
     }
 
     @Then("Each user should have id, name, email, gender, and status fields")
@@ -215,13 +215,17 @@ public class StepDefinationFile extends Utils {
 //        for(Map<String, Object> l : users){
 //            System.out.println("This is respons of all users : "+ l);
 //        }
+
+
+
         for (Map<String, Object> user : users) {
-            assertNotNull("User id should not be null", user.get("id"));
-            assertNotNull("User id should be of type Integer", user.get("id"));
-            assertNotNull("User name should not be null", user.get("name"));
-            assertNotNull("User email should not be null", user.get("email"));
-            assertNotNull("User gender should not be null", user.get("gender"));
-            assertNotNull("User status should not be null", user.get("status"));
+            Assert.assertNotNull(user.get("id"), "User id should not be null");
+            Assert.assertTrue(user.get("id") instanceof Number, "User id should be of type Number");
+
+            Assert.assertNotNull(user.get("name"), "User name should not be null");
+            Assert.assertNotNull(user.get("email"), "User email should not be null");
+            Assert.assertNotNull(user.get("gender"), "User gender should not be null");
+            Assert.assertNotNull(user.get("status"), "User status should not be null");
         }
     }
 
@@ -243,7 +247,7 @@ public class StepDefinationFile extends Utils {
         js = new JsonPath(response);
         int actualID = js.get("id");
         System.out.println("Extracted id from the response" + actualID);
-        assertEquals(ID, actualID);
+        Assert.assertEquals(ID, actualID);
     }
 
     @Then("I should receive the user details")
@@ -335,7 +339,7 @@ public class StepDefinationFile extends Utils {
         js = new JsonPath(response);
         int actualID = js.get("id");
         System.out.println("Extracted id from the response" + actualID);
-        assertEquals(PutID, actualID);
+        Assert.assertEquals(PutID, actualID);
 
     }
 

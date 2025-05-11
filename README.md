@@ -109,4 +109,4 @@ This project is licensed under the [MIT License](LICENSE).
 - **Cucumber (BDD)**
 - **RestAssured**
 - **Maven**
-- **JUnit/TestNG**
+- **TestNG**

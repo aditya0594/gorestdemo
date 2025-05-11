@@ -126,14 +126,6 @@
               </exclusion>
           </exclusions>
       </dependency>
-      <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-      <dependency>
-          <groupId>io.cucumber</groupId>
-          <artifactId>cucumber-junit</artifactId>
-          <version>7.16.1</version>
-          <scope>test</scope>
-      </dependency>
-
       <!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
       <dependency>
           <groupId>tech.grasshopper</groupId>

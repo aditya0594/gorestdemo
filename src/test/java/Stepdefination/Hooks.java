@@ -1,12 +1,9 @@
 package Stepdefination;
 
-import io.cucumber.java.Before;
-
-import java.io.IOException;
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 
 public class Hooks {
-    @Before("@deleteplace")
-    public void beforScenario() throws IOException {
 
-    }
+
 }
