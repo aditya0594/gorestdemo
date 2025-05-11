@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-        ENV = 'qa' // Set your environment here
+        ENV = 'qa'
     }
 
     tools {
-        jdk 'jdk20' // You must configure JDK 20 in Jenkins Global Tools
-        maven 'apache-maven-3.9.6-bin' // You must configure Maven in Jenkins Global Tools
+        jdk 'jdk-20' // ✅ Must match what's configured in Jenkins
+        maven 'apache-maven-3.9.6-bin' // ✅ Exact Maven name
     }
 
     stages {
@@ -17,26 +17,12 @@ pipeline {
             }
         }
 
-        stage('Build and Run Tests') {
+        stage('Build and Test') {
             steps {
                 echo "Running tests in environment: ${ENV}"
                 sh "mvn test -Denv=${ENV}"
             }
         }
 
-        stage('Archive Test Reports') {
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                    archiveArtifacts artifacts: 'target/surefire-reports/**', fingerprint: true
-                }
-            }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline finished.'
-        }
-    }
-}
+        stage('Archive Test Reports') {   // ✅ Proper placement
+            steps {
