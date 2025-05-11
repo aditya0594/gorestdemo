@@ -40,7 +40,7 @@ A modular, maintainable, and scalable API Test Automation Framework built using 
 |---------------------------|--------------------------------------------------------------------|
 | Dynamic data generation   | Random email/ID generation methods                                 |
 | Error response validation | Centralized reusable error validation logic                        |
-| Test flakiness            | Retry mechanisms, cleanup strategies                               |
+| Test flakiness            | cleanup strategies                               |
 | Scalability               | Logical grouping of scenarios into feature files                   |
 
 ---
