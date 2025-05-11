@@ -5,13 +5,9 @@ pipeline {
         ENV = 'qa' // Set your environment here
     }
 
-    triggers {
-        // Optional: Polling or GitHub webhooks can be configured in Jenkins UI
-    }
-
     tools {
         jdk 'jdk20' // You must configure JDK 20 in Jenkins Global Tools
-        maven 'Maven3' // You must configure Maven in Jenkins Global Tools
+        maven 'apache-maven-3.9.6-bin' // You must configure Maven in Jenkins Global Tools
     }
 
     stages {
