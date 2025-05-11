@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-        ENV = 'qa'
+        ENV = 'qa' // You can change this to dev, prod, etc.
     }
 
     tools {
-        jdk 'jdk-20' // ✅ Must match what's configured in Jenkins
-        maven 'apache-maven-3.9.6-bin' // ✅ Exact Maven name
+        jdk 'jdk-20' // Make sure JDK 20 is configured in Jenkins as 'jdk-20'
+        maven 'apache-maven-3.9.6-bin' // Make sure Maven is configured with this exact name
     }
 
     stages {
@@ -24,5 +24,17 @@ pipeline {
             }
         }
 
-        stage('Archive Test Reports') {   // ✅ Proper placement
+        stage('Archive Test Reports') {
             steps {
+                junit 'target/surefire-reports/*.xml'
+                archiveArtifacts artifacts: 'target/surefire-reports/**', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+    }
+}
