@@ -16,7 +16,8 @@ A modular, maintainable, and scalable API Test Automation Framework built using 
 ├── hooks/
 │   └── Hooks.java              # Cucumber lifecycle hooks (@Before/@After)
 ├── config/
-│   └── qa.properties           # Environment configuration (base URLs, tokens, etc.)
+│   └── qa.properties 
+├── Jenkinsfile                 # Jenkins pipeline configuratio # Environment configuration (base URLs, tokens, etc.)
 ```
 
 ---
@@ -92,96 +93,21 @@ NOTE : If token expries, you have to generate from the gorest site
 ```
 
 ----------------------------------------------------------------------------------------------------
+## Jenkinsfile Configuration
 
-🏗️ Jenkinsfile Integration
-Jenkinsfile Overview
-The Jenkinsfile is designed to automate the execution of the tests in this API Test Automation Framework. It defines the stages and steps involved in the CI/CD pipeline for building, testing, and deploying the project.
+### 🔧 How the Jenkinsfile Works
 
-How It Works
-Source Code Checkout:
+1. **Jenkins Pipeline**: The `Jenkinsfile` defines the pipeline stages for continuous integration and deployment.
+2. **Stages**:
+    - **Build Stage**: Compiles the project and runs unit tests.
+    - **Test Stage**: Executes the API tests using Cucumber.
+    - **Post Stage**: Sends reports, cleans up the environment, or triggers other actions.
 
-The Jenkins pipeline begins by pulling the latest code from the configured Git repository.
+3. **Running Tests**:
+    - After the pipeline is triggered, it will pull the latest changes from the repository, compile the project, and then run the tests.
+    - The results of the tests are displayed within Jenkins, and reports are generated.
+4. **Triggering the Pipeline**: You can trigger the pipeline via Jenkins UI, after pushing new code to the repository.
 
-Build Stage:
-
-Maven Build: The Jenkins pipeline executes mvn clean install to ensure that the project is compiled and the necessary dependencies are downloaded.
-
-Test Stage:
-
-Cucumber Test Execution: In this stage, Jenkins executes the API tests using Maven. The Cucumber feature files and corresponding step definitions are used to run the tests.
-
-You can run the tests with the default configuration, or specify specific tags to run a subset of tests, such as @addUser.
-
-Post-Build Actions:
-
-Test Results Archiving: The results of the test execution are collected and stored for review.
-
-Notifications: Depending on the build's outcome, Jenkins can notify team members (via email, Slack, etc.) about the success or failure of the build.
-
-Artifact Archiving: If configured, Jenkins archives test reports and other artifacts generated during the build.
-
-Example Jenkinsfile
-Here's an example of how the Jenkinsfile looks for this project:
-
-groovy
-Copy
-Edit
-pipeline {
-agent any
-
-    environment {
-        BASE_URL = 'https://api.example.com'
-        AUTH_TOKEN = 'Bearer your_token_here'
-    }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/your-repo/project.git'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                script {
-                    sh 'mvn clean install'
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    sh 'mvn test -Dcucumber.filter.tags="@addUser"'
-                }
-            }
-        }
-        
-        stage('Post-Build') {
-            steps {
-                archiveArtifacts allowEmptyArchive: true, artifacts: '**/target/*.html', onlyIfSuccessful: true
-                junit '**/target/test-*.xml'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build and tests executed successfully!'
-        }
-        failure {
-            echo 'Build failed, please check the logs!'
-        }
-    }
-}
-Breakdown of Jenkinsfile:
-Checkout: This stage checks out the latest code from the GitHub repository.
-
-Build: This stage executes mvn clean install to build the project and download the required dependencies.
-
-Test: This stage runs the Cucumber tests using Maven and executes tests based on specific tags (e.g., @addUser).
-
-Post-Build: This stage archives the test results and generates a test report. It also stores the test results in Jenkins for further analysis.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 ## 🤝 Contributing
 
