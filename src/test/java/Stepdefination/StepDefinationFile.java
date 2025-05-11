@@ -38,6 +38,7 @@ public class StepDefinationFile extends Utils {
     User putrequestdata = new User();
     UpdateUser updateUser;
     Map<String, Object> updateUserMap = new HashMap<>();
+    String email;
 
     public StepDefinationFile() {
     }
@@ -78,7 +79,7 @@ public class StepDefinationFile extends Utils {
         System.out.println("Value for " + keyvalue + ": " + actualValue);
         assertEquals(expectedValue, actualValue);
     }
-    String email;
+
     @Given("Add Place payload {string} {string}")
     @Given("Add user payload")
     public void add_user_payload() throws IOException {
@@ -87,7 +88,7 @@ public class StepDefinationFile extends Utils {
         Responsespec = new ResponseSpecBuilder().expectStatusCode(201).expectContentType("application/json").build();
         res = given().log().all()
                 .spec(requestspecification()
-                .body(user));
+                        .body(user));
     }
 
     @When("Verify user is created")
@@ -276,13 +277,27 @@ public class StepDefinationFile extends Utils {
     }
 
     @When("User calls {string} with {string} http request using invalid ID {string}")
-    public void user_calls_with_http_request_using_invalid_id(String resoure, String httpMethod, String id) throws IOException {
+    public void user_calls_with_http_request_using_invalid_id(String resource, String httpMethod, String id) throws IOException {
         Responsespec = new ResponseSpecBuilder().expectStatusCode(404)
                 .expectContentType(ContentType.JSON).build();
 
+        switch (id.toLowerCase()) {
+            case "9999999":
+                id = "9999999";
+                break;
+            case "abc":
+                id = "abc";
+                break;
+            case "!@#":
+                id = "!@#";
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported ID format: " + id);
+        }
         res = given().spec(requestspecification())
                 .pathParam("id", id);
-        user_call_with_http_request(resoure, httpMethod);
+        user_call_with_http_request(resource, httpMethod);
+
     }
 
     @Then("Status code should be {int}")
@@ -468,6 +483,7 @@ public class StepDefinationFile extends Utils {
 
 
     }
+
     @When("User calls {string} with {string} http request and verify the status code {int}")
     public void userCallsWithHttpRequestAndVerifyTheStatusCode(String resourse, String httpMethod, int code) throws IOException {
         Responsespec = new ResponseSpecBuilder().expectStatusCode(code).build();
@@ -479,7 +495,50 @@ public class StepDefinationFile extends Utils {
     }
 
 
+    @Given("Add user payload with the missing {string}")
+    public void addUserPayloadWithTheMissing(String missingField) throws IOException {
+
+        this.email = Utils.generateRandomEmail();  // Default random email
+
+        // Default values
+        String name = "aditya pawar";
+        String gender = "Male";
+        String status = "Active";
+        String email = this.email;
+
+        // Remove the specified field
+        switch (missingField.toLowerCase()) {
+            case "name":
+                name = "";
+                break;
+            case "email":
+                email = "";
+                break;
+            case "gender":
+                gender = "";
+                break;
+            case "status":
+                status = "";
+                break;
+        }
+
+        // Create user object after values are updated
+        User user = new User(name, email, gender, status);
+
+        Responsespec = new ResponseSpecBuilder().expectStatusCode(422).expectContentType("application/json").build();
+        res = given().log().all()
+                .spec(requestspecification())
+                .body(user);
+    }
+
+
+    @Then("It should show the expected {string} and {string} message")
+    public void itShouldShowTheExpectedAndMessage(String Field, String ErrorMessage) {
+        validateErrorResponse(response, Field, ErrorMessage);
+    }
+
 }
+
 
 
 

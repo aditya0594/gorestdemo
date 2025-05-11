@@ -9,26 +9,20 @@ Feature: Validating place Api
     Given Add user payload
     When User call "AddUser" with "POST" http request
     And Verify user ID is present or not
+
   @addUser
-  Scenario: Verify that create user with missing name field
-    Given Add user payload with missing name
+  Scenario Outline: Verify that create user with missing "<Field>" field
+    Given Add user payload with the missing "<Field>"
     When User call "AddUser" with "POST" http request
-    And Verify Name is missing or empty!
-  @addUser
-  Scenario: Verify that create user with missing email field
-    Given Add user payload with the missing email
-    When User call "AddUser" with "POST" http request
-    And It should show the Email is missing or empty! message
-  @addUser
-  Scenario: Verify that create user with missing Gender field
-    Given Add user payload with the missing Gender
-    When User call "AddUser" with "POST" http request
-    And It should show the Gender is missing or empty! message
-  @addUser
-  Scenario: Verify that create user with missing Status field
-    Given Add user payload with the missing Status
-    When User call "AddUser" with "POST" http request
-    And It should show the Status is missing or empty! message
+    Then It should show the expected "<Field>" and "<ErrorMessage>" message
+
+    Examples:
+      | Field  | ErrorMessage                          |
+      | name   | can't be blank                        |
+      | email  | can't be blank                        |
+      | gender | can't be blank, can be male of female |
+      | status | can't be blank                        |
+
   @addUser
   Scenario: Create user with the same email id
     Given Add user payload with same email
