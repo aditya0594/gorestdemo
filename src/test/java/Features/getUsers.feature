@@ -7,7 +7,7 @@ Feature: To get the all user list
     And I should receive a list of users
     And Each user should have id, name, email, gender, and status fields
 
-  @getUser
+  @getUser @regression
   Scenario: Verify the user details by ID
     Given Add user payload
     When User call "AddUser" with "POST" http request
@@ -15,7 +15,7 @@ Feature: To get the all user list
     And Verify user details by ID
     Then I should receive the user details
 
-  @getUser
+  @getUser @regression
   Scenario Outline: Verify user details with invalid ID "<InvalidID>"
     When User calls "GetuserDetails" with "GET" http request using invalid ID "<InvalidID>"
     Then Status code should be 404

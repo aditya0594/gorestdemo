@@ -1,16 +1,16 @@
 Feature: Validating place Api
-  @addUser
+  @addUser @regression
   Scenario: Verify the add user API
     Given Add user payload
     When User call "AddUser" with "POST" http request
     And Verify user is created
-  @addUser
+  @addUser @regression
   Scenario: Verify that created user id is created
     Given Add user payload
     When User call "AddUser" with "POST" http request
     And Verify user ID is present or not
 
-  @addUser
+  @addUser @regression
   Scenario Outline: Verify that create user with missing "<Field>" field
     Given Add user payload with the missing "<Field>"
     When User call "AddUser" with "POST" http request

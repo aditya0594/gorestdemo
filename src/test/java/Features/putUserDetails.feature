@@ -17,12 +17,12 @@ Feature: To verify the update user API
     When User calls "Putuserdata" with "PUT" http request using missing "name"
     Then The error message "name" should contain "can't be blank"
 
-  @UpdateUser
+  @UpdateUser @regression
   Scenario: Update user with missing gender
     When User calls "Putuserdata" with "PUT" http request using missing "gender"
     Then The error message "gender" should contain "can't be blank, can be male of female"
 
-  @UpdateUser
+  @UpdateUser @regression
   Scenario Outline: Update user with empty <Field>
     When User calls "Putuserdata" with "PUT" http request using missing "<Field>"
     Then The error message "<Field>" should contain "<ErrorMessage>"
